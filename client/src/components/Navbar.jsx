@@ -10,6 +10,8 @@ function Navbar() {
   const { userData, backendUrl, setUserData, isLoggedin, setIsLoggedin } =
     useContext(AppContext);
 
+  axios.defaults.withCredentials = true;
+
   const sendVerificationOTP = async () => {
     try {
       axios.defaults.withCredentials = true;
@@ -40,6 +42,9 @@ function Navbar() {
       toast.error(error.message);
     }
   };
+
+  console.log("userData", userData);
+  console.log("isLoggedin", isLoggedin);
 
   return (
     <div className="w-full flex justify-between items-center p-4 sm:p-6 sm:px-24 absolute top-0">
